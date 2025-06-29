@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ffe6f0, #ffd6e0);
+  color: #333;
+}
+
+.container {
+  padding: 30px 20px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 22px;
+  color: #c2185b;
+  margin-bottom: 20px;
+}
+
+.song-list {
+  margin: 20px 0;
+  text-align: left;
+  background: #fff0f7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.song-list label {
+  display: block;
+  padding: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button {
+  background: #ff4081;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #e91e63;
+}
+
+.cookie-popup {
+  background: #333;
+  color: #fff;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 99;
+}
+
+.cookie-popup button {
+  background: #ff4081;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .song-list label {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+}

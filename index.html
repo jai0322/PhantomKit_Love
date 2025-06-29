@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💖 Dedícale una Canción Especial</title>
+</head>
+<body style="font-family: sans-serif; background: #fff0f5; display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+  <h1>💘 Elige una canción para dedicar</h1>
+
+  <form id="songForm" style="margin: 1rem 0;">
+    <label><input type="radio" name="song" value="perfect.mp3" checked /> Perfect - Ed Sheeran</label><br>
+    <label><input type="radio" name="song" value="all_of_me.mp3" /> All of Me - John Legend</label><br>
+    <label><input type="radio" name="song" value="someone_like_you.mp3" /> Someone Like You - Adele</label><br>
+  </form>
+
+  <button id="playBtn" style="padding: 1rem 2rem; background: #e91e63; color: white; border: none; border-radius: 10px; font-size: 16px;">💝 Ver dedicatoria</button>
+
+  <audio id="audio" preload="auto"></audio>
+
+  <script>
+    const audio = document.getElementById('audio');
+    let audioReady = false;
+
+    document.getElementById('playBtn').onclick = () => {
+      const song = document.querySelector('input[name="song"]:checked').value;
+      audio.src = song;
+
+      // "Desbloquear" la reproducción
+      audio.volume = 0;
+      audio.play().then(() => {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.volume = 1;
+        audioReady = true;
+
+        // Abrimos la ventana de verificación
+        window.open('verify.html', 'Verificar', 'width=400,height=450');
+      }).catch(err => {
+        alert("Debes permitir el audio para continuar.");
+      });
+    };
+
+    // Esperamos el mensaje desde verify.html
+    window.addEventListener('message', (e) => {
+      if (e.data === 'verificado' && audioReady) {
+        audio.play().catch(err => {
+          alert("Activa el sonido manualmente");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
